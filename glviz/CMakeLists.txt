@@ -1,3 +1,4 @@
+
 include(shader_wrap_cpp)
 
 # GLviz shader.
@@ -55,14 +56,24 @@ add_library(glviz
 include_directories(
     include
     ${eigen_INCLUDE_DIRS}
-    ${anttweakbar_INCLUDE_DIRS}
+    # ${anttweakbar_INCLUDE_DIRS}
+    /usr/local/Cellar/anttweakbar/1.16/include
+    ${sdl_INCLUDE_DIRS}
+    ${glew_INCLUDE_DIRS}
+)
+
+include_directories(
+    include
+    ${eigen_INCLUDE_DIRS}
+    # ${anttweakbar_INCLUDE_DIRS}
+    /usr/local/Cellar/anttweakbar/1.16/include
     ${sdl_INCLUDE_DIRS}
     ${glew_INCLUDE_DIRS}
 )
 
 add_dependencies(glviz
     shader
-    anttweakbar
+    # anttweakbar
     SDL2main
     SDL2-static
     glew
@@ -73,7 +84,8 @@ find_package(OpenGL REQUIRED)
 set(glviz_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${eigen_INCLUDE_DIRS}
-    ${anttweakbar_INCLUDE_DIRS}
+    # ${anttweakbar_INCLUDE_DIRS}
+    /usr/local/Cellar/anttweakbar/1.16/include
     ${sdl_INCLUDE_DIRS}
     ${glew_INCLUDE_DIRS}
     ${OPENGL_INCLUDE_DIRS}
@@ -82,7 +94,7 @@ set(glviz_INCLUDE_DIRS
 set(glviz_LIBRARIES
     glviz
     shader
-    ${anttweakbar_LIBRARIES}
+    /usr/local/Cellar/anttweakbar/1.16/lib/libAntTweakBar.a
     ${sdl_LIBRARIES}
     ${glew_LIBRARIES}
     ${OPENGL_LIBRARIES}
